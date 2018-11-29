@@ -1,0 +1,95 @@
+<% include partials/header %>
+<% include partials/nav %>
+<div class="container-fluid principalBackground cardGame">
+  <div class="row justify-content-center">
+    <p class="h2 text-center algo swing animacion">Dekidser</p>
+  </div>
+  <div class="row justify-content-center">
+    <div class="d-none d-sm-block col-md-5 text-sm-lef">
+      <div class="row">
+        <table class="table table-borderless table-hover table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Habilidad</th>
+              <th scope="col">Dekids coins</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% var total =  0;%>
+            <% user.skills.forEach(function(skill) {%>
+              <% if (skill.dekids_coins>0) { %>
+
+                <tr>
+                  <td><%= skill.name%>
+                    <div class="progress">
+                      <% var porcentaje = (skill.UserSkills.dekids_coins /skill.dekids_coins)*100-2; %>
+                      <% total += skill.UserSkills.dekids_coins;%>
+                      <% porcentaje = porcentaje+"%" %>
+                      <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary " role="progressbar" style="width:<%=porcentaje%>" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                    <td class="text-center"><%= skill.UserSkills.dekids_coins%></td>
+                  </tr>
+                  <% } %>
+                  <% }); %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-3 align-self-center justify-content-center">
+        <p class="h4 text-center"><%=  user.name %></p>
+        <div class="text-center" style="width:50%; display:inline-block; margin-left:25%;">
+          <img src="./assets/uploads/profiles/<%=user.profile%>" class="img-fluid rounded float-right mx-auto d-block animacion bounce" alt="Dekidser">
+        </div>
+        <p class="h2 text-center" style="color:#ffffff;">Total</p>
+        <p class="h2 text-center" style="color:#99CC00"><%= total %></p>
+        <div class="row">
+          <div class="d-block d-sm-none col-sm-12">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModalLong">Detalles</button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title text-secondary" id="exampleModalLongTitle">Resultados</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <table class="table table-borderless table-hover table-sm text-secondary">
+                      <thead>
+                        <tr>
+                          <th scope="col">Habilidad</th>
+                          <th scope="col">Dekids coins</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% user.skills.forEach(function(skill) {%>
+                          <%if (skill.dekids_coins>0){%>
+                          <tr>
+                            <td><%= skill.name%>
+                              <div class="progress">
+                                <% var porcentaje = (skill.UserSkills.dekids_coins /skill.dekids_coins)*100-2; %>
+                                <% porcentaje = porcentaje+"%" %>
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary " role="progressbar" style="width:<%=porcentaje%>" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div></td>
+                              <td><%= skill.UserSkills.dekids_coins%></td>
+                            </tr>
+                            <%}%>
+                        <% }); %>
+                                </tbody>
+                              </table>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Aceptar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% include partials/footer %>

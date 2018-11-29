@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>particles.js</title>
+  <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+  <meta name="author" content="Vincent Garreau" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" media="screen" href="css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/estilos.css">
+  <style media="screen">
+    *{
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<!-- particles.js container -->
+<div id="particles-js">
+  <div class="container-fluid principalBackground" style="position:absolute; z-index:1;">
+    <div class="row justify-content-center">
+      <div class="col-7 col-md-4 text-sm-lef">
+        <div class="row">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th scope="col" style="padding: .5rem .25rem; color:#89B700">Habilidad</th>
+                <th scope="col" style="padding: .5rem .25rem; color:#89B700">Dekids</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding: .5rem .30rem;">Saber llevar a cabo presentaciones y/o exposiciones.</td>
+                <td style="padding: .5rem .30rem;">67</td>
+              </tr>
+              <tr>
+                <td style="padding: .5rem .30rem;">Comprende y sintetiza información</td>
+                <td style="padding: .5rem .30rem;">73</td>
+              </tr>
+              <tr>
+                <td style="padding: .5rem .30rem;">Desarrolla proyectos de emprendimiento</td>
+                <td style="padding: .5rem .30rem;">69</td>
+              </tr>
+              <tr>
+                <td style="padding: .5rem .30rem;">Utiliza herramientas digitales</td>
+                <td style="padding: .5rem .30rem;">78</td>
+              </tr>
+              <tr>
+                <td style="padding: .5rem .30rem;">Demuestra respeto hacia sus pilotos y compañeros</td>
+                <td style="padding: .5rem .30rem;">90</td>
+              </tr>
+              <tr>
+                <td style="padding: .5rem .30rem;">Comunica efectivamente sus ideas</td>
+                <td style="padding: .5rem .30rem;">77</td>
+              </tr>
+              <tr>
+                <td style="padding: .5rem .30rem;">Tabaja de manera colaborativa</td>
+                <td style="padding: .5rem .30rem;">82</td>
+              </tr>
+              <tr>
+                <td style="padding: .5rem .30rem;">Se identifica como emprendedor</td>
+                <td style="padding: .5rem .30rem;">80</td>
+              </tr>
+              <tr>
+                <td style="padding: .5rem .30rem;">Propone ideas frente al grupo</td>
+                <td style="padding: .5rem .30rem;">69</td>
+              </tr>
+              <tr>
+                <td style="padding: .5rem .30rem;">Comunica sus ideas de manera coherente</td>
+                <td style="padding: .5rem .30rem;">71</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-5 col-md-3 align-self-center">
+        <p class="h4 text-center">Gonten</p>
+        <img src="./Goten_niño.png" class="float-right img-fluid" alt="">
+        <p class="h2 text-center" style="color:#99CC00">Total</p>
+        <p class="h2 text-center" style="color:#99CC00">756</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<!-- scripts -->
+<script src="../particles.js"></script>
+<script src="js/app.js"></script>
+
+<!-- stats.js -->
+<script src="js/lib/stats.js"></script>
+<script>
+  var count_particles, stats, update;
+  stats = new Stats;
+  stats.setMode(0);
+  stats.domElement.style.position = 'absolute';
+  stats.domElement.style.left = '0px';
+  stats.domElement.style.top = '0px';
+  document.body.appendChild(stats.domElement);
+  count_particles = document.querySelector('.js-count-particles');
+  update = function() {
+    stats.begin();
+    stats.end();
+    if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+      count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+    }
+    requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+</script>
+
+</body>
+</html>

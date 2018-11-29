@@ -1,0 +1,30 @@
+body,html{
+  height: 100%;
+}
+#particles-js{
+  background-image: url("../img/Fondo azul.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-attachment: fixed;
+  background-size: cover;
+  color: white;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 120vh;
+  z-index: -2000;
+}
+.cardGame{
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+}
+
+table{
+  font-family: 'Merienda', cursive;
+}
+.animacion {
+  animation-duration: 3s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+}
